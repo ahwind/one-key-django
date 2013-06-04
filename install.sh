@@ -2,7 +2,7 @@
 #20130603
 #install django1.5
 py_bin='/usr/local/python/bin'
-get_ip=`/sbin/ifconfig |grep 'inet addr:'|grep -v '127.0.0.1'|awk '{print $2}'|awk -F: '{print $2}'|head -n 1`
+get_ip=`/sbin/ifconfig |grep 'inet addr:'|egrep -v '127.0.0.1|255.255.255.255'|awk '{print $2}'|awk -F: '{print $2}'|head -n 1`
 yum install pcre pcre-devel -y
 rpm -ivh *.rpm
 if [ $? -ne 0 ];then
